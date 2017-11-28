@@ -1,7 +1,10 @@
 node {
-    stage('You are') {
+    stage('Compile') {
+        checkout scm
+        sh './gradlew compileJava'
     }
-    stage('the best!') {
+    stage('Test') {
+        sh './gradlew test'
     }
     stage('proceed?') {
         milestone()
