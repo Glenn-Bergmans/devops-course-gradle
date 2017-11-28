@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops-artifact.iml" filepath="$PROJECT_DIR$/.idea/modules/devops-artifact.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops-artifact_main.iml" filepath="$PROJECT_DIR$/.idea/modules/devops-artifact_main.iml" group="devops-artifact" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/devops-artifact_test.iml" filepath="$PROJECT_DIR$/.idea/modules/devops-artifact_test.iml" group="devops-artifact" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/subproject1/subproject1.iml" filepath="$PROJECT_DIR$/.idea/modules/subproject1/subproject1.iml" group="subproject1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/subproject2/subproject2.iml" filepath="$PROJECT_DIR$/.idea/modules/subproject2/subproject2.iml" group="subproject2" />
+    </modules>
+  </component>
+</project>

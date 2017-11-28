@@ -1,0 +1,72 @@
+group 'devops-group'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.8.0'
+    testCompile 'org.assertj:assertj-core:3.8.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+    }
+}
+apply plugin: "com.jfrog.artifactory"
+
+artifactory {
+    publish {
+        contextUrl = 'http://localhost:8081/artifactory'
+        repository {
+            repoKey = "libs-snapshot-local"
+            username = "user"
+            password = "pass"
+        }
+    }
+}
+
+//https://docs.gradle.org/current/userguide/working_with_files.html
+task copyDocs(type: Copy) {
+    from 'src/main/doc'
+    into "$buildDir/documentation"
+    include '**/*.md'
+    expand(version: version)
+}
+
+task copyDocsInclude(type: Copy) {
+    from 'src/main/doc'
+    into "$buildDir/documentation"
+    include '**/*.md'
+}
+
+task copyDocsExclude(type: Copy) {
+    from 'src/main/doc'
+    into "$buildDir/documentation"
+    exclude '**/*.gif'
+}
+
+task runMain(type: JavaExec) {
+    group = 'application'
+    dependsOn 'classes'
+    main = 'HelloWorld'
+    classpath = sourceSets.main.runtimeClasspath
+    doFirst {
+        args = [System.getProperty('name')]
+    }
+}
+
+subprojects {
+    task doIt {
+        println 'Just do it! https://www.youtube.com/watch?v=ZXsQAXx_ao0'
+    }
+}

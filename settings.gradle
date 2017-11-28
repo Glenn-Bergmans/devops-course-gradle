@@ -1,0 +1,3 @@
+rootProject.name = 'devops-artifact'
+include 'subproject1'
+include 'subproject2'
